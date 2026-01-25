@@ -1,6 +1,7 @@
 version: 2
 updates:
   # Enable version updates for pnpm dependencies
+  # Note: Dependabot uses "npm" ecosystem for pnpm projects
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
