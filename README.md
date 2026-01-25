@@ -254,12 +254,56 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## 🤖 Automation & CI/CD
+
+This repository includes comprehensive automation workflows:
+
+### Continuous Integration (CI)
+- **CI Workflow** (`.github/workflows/ci.yml`)
+  - Runs on push to `main` and `develop` branches
+  - Tests on Node.js 18.x and 20.x
+  - Type checking with TypeScript
+  - Builds all packages
+  - Runs all example scripts to validate functionality
+  - Archives build artifacts
+
+### Code Quality
+- **Code Quality Workflow** (`.github/workflows/code-quality.yml`)
+  - Runs on pull requests
+  - Type checking
+  - Build validation
+  - Package structure verification
+  - Example execution tests
+
+### Release Management
+- **Release Workflow** (`.github/workflows/release.yml`)
+  - Triggered on version tags (e.g., `v1.0.0`)
+  - Automated builds
+  - GitHub release creation with auto-generated notes
+  - Attaches relevant files to releases
+
+### Dependency Management
+- **Dependabot** (`.github/dependabot.yml`)
+  - Automated dependency updates
+  - Weekly checks for npm packages and GitHub Actions
+  - Separate configurations for root, core, and examples packages
+  - Auto-assigns PRs to maintainers
+
+### Repository Automation
+- **Auto-assign** (`.github/workflows/auto-assign.yml`) - Automatically assigns issues and PRs
+- **Auto-label** (`.github/workflows/auto-label.yml`) - Labels PRs based on changed files
+- **Stale Management** (`.github/workflows/stale.yml`) - Closes inactive issues and PRs
+- **Proof HTML** (`.github/workflows/proof-html.yml`) - Validates HTML content
+
 ## 🌟 Features
 
 - ✅ Monorepo structure with npm workspaces
 - ✅ Multiple packages: core and examples
 - ✅ TypeScript support with strict type checking
 - ✅ Based on the latest @objectstack/spec (v0.3.3)
+- ✅ **Automated CI/CD workflows** with GitHub Actions
+- ✅ **Automated dependency updates** with Dependabot
+- ✅ **Code quality checks** on pull requests
 - ✅ Core objects: Task and Contact management
 - ✅ E-commerce example: Product and Order management
 - ✅ Blog example: Post and Author management
