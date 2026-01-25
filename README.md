@@ -38,6 +38,9 @@ npm run example:blog
 
 # Run the CRM example
 npm run example:crm
+
+# Run the comprehensive CRM example (All core modules)
+npm run example:crm-comprehensive
 ```
 
 ### Development
@@ -89,10 +92,17 @@ Example applications demonstrating different use cases:
 - Author object - Author management
 - Blog post and author list views
 
-**CRM:**
-- Account object - Business account management
-- Opportunity object - Sales pipeline tracking
-- Account list view, opportunity list/kanban views
+**CRM (Comprehensive - All Core Modules):**
+- **Lead Management** - Lead object with qualification and conversion tracking
+- **Account Management** - Account object for business account management
+- **Opportunity Management** - Opportunity object for sales pipeline tracking
+- **Contact Management** - Enhanced Contact object linked to accounts
+- **Case/Support Management** - Case object for customer support tickets
+- **Campaign Management** - Campaign object for marketing campaigns
+- **Quote Management** - Quote object for sales quotes and proposals
+- **Contract Management** - Contract object for agreements and subscriptions
+- **Activity Management** - Task, Event, and Call objects for activity tracking
+- 12 Views including list and kanban boards for all objects
 
 ### Configuration
 
@@ -129,15 +139,23 @@ objectstack-starter/               # Monorepo root
 │       │   │   ├── blog-post.object.ts    # Blog
 │       │   │   ├── author.object.ts       # Blog
 │       │   │   ├── account.object.ts      # CRM
-│       │   │   └── opportunity.object.ts  # CRM
+│       │   │   ├── opportunity.object.ts  # CRM
+│       │   │   ├── lead.object.ts         # CRM
+│       │   │   ├── case.object.ts         # CRM
+│       │   │   ├── campaign.object.ts     # CRM
+│       │   │   ├── quote.object.ts        # CRM
+│       │   │   ├── contract.object.ts     # CRM
+│       │   │   └── activity.object.ts     # CRM (Task, Event, Call)
 │       │   ├── ui/              # Example UI views
 │       │   │   ├── ecommerce.view.ts
 │       │   │   ├── blog.view.ts
-│       │   │   └── crm.view.ts
+│       │   │   ├── crm.view.ts
+│       │   │   └── crm-extended.view.ts
 │       │   ├── basic-example.ts
 │       │   ├── ecommerce-example.ts
 │       │   ├── blog-example.ts
 │       │   ├── crm-example.ts
+│       │   ├── crm-comprehensive-example.ts
 │       │   └── index.ts
 │       ├── package.json
 │       ├── tsconfig.json
@@ -245,7 +263,15 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - ✅ Core objects: Task and Contact management
 - ✅ E-commerce example: Product and Order management
 - ✅ Blog example: Post and Author management
-- ✅ CRM example: Account and Opportunity tracking
+- ✅ **Comprehensive CRM example**: Complete CRM system with all core modules
+  - Lead Management with qualification workflow
+  - Account & Contact Management with relationships
+  - Opportunity Management with sales pipeline
+  - Case/Support Management for customer service
+  - Campaign Management for marketing
+  - Quote & Contract Management for sales
+  - Activity Tracking (Tasks, Events, Calls)
+  - 11 CRM objects with 12 views
 - ✅ Multiple view types (grid and kanban)
 - ✅ Proper project structure and configuration
 - ✅ Ready to extend with AI, API, and System protocols
