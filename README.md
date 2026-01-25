@@ -35,6 +35,20 @@ npm run type-check
 npm run clean
 ```
 
+### Running the Example
+
+The template includes an example file demonstrating how to use the defined objects and views:
+
+```bash
+# Build the project
+npm run build
+
+# Run the example
+node dist/example.js
+```
+
+This will show you how to import and work with the ObjectStack definitions.
+
 ## 📦 What's Included
 
 This starter template includes:
