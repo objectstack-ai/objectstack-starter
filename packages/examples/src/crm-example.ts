@@ -51,7 +51,7 @@ console.log('🔄 Sales Pipeline Stages:');
 const stageField = opportunityObject.fields.stage;
 if (stageField.type === 'select' && stageField.options) {
   stageField.options.forEach((option, index) => {
-    const arrow = index < stageField.options!.length - 2 ? '➡️' : '';
+    const arrow = index < stageField.options!.length - 1 ? '➡️' : '';
     console.log(`  ${option.label} ${arrow}`);
   });
 }
