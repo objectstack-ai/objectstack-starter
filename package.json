@@ -4,21 +4,18 @@
   "description": "ObjectStack Starter Template - A metadata-driven low-code platform starter (Multi-package Monorepo)",
   "type": "module",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "build": "npm run build --workspaces",
-    "build:core": "npm run build -w @objectstack-starter/core",
-    "build:examples": "npm run build -w @objectstack-starter/examples",
-    "dev": "npm run dev --workspaces --if-present",
-    "clean": "npm run clean --workspaces --if-present",
-    "type-check": "npm run type-check --workspaces",
-    "example:basic": "npm run example:basic -w @objectstack-starter/examples",
-    "example:ecommerce": "npm run example:ecommerce -w @objectstack-starter/examples",
-    "example:blog": "npm run example:blog -w @objectstack-starter/examples",
-    "example:crm": "npm run example:crm -w @objectstack-starter/examples",
-    "example:crm-comprehensive": "npm run example:crm-comprehensive -w @objectstack-starter/examples"
+    "build": "pnpm -r run build",
+    "build:core": "pnpm --filter @objectstack-starter/core run build",
+    "build:examples": "pnpm --filter @objectstack-starter/examples run build",
+    "dev": "pnpm -r run dev",
+    "clean": "pnpm -r run clean",
+    "type-check": "pnpm -r run type-check",
+    "example:basic": "pnpm --filter @objectstack-starter/examples run example:basic",
+    "example:ecommerce": "pnpm --filter @objectstack-starter/examples run example:ecommerce",
+    "example:blog": "pnpm --filter @objectstack-starter/examples run example:blog",
+    "example:crm": "pnpm --filter @objectstack-starter/examples run example:crm",
+    "example:crm-comprehensive": "pnpm --filter @objectstack-starter/examples run example:crm-comprehensive"
   },
   "devDependencies": {
     "@types/node": "^25.0.10",

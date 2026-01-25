@@ -16,10 +16,10 @@ git clone https://github.com/objectstack-ai/objectstack-starter.git
 cd objectstack-starter
 
 # Install dependencies (installs all workspace packages)
-npm install
+pnpm install
 
 # Build all packages
-npm run build
+pnpm run build
 ```
 
 ### Running Examples
@@ -28,36 +28,36 @@ This template includes multiple example applications demonstrating different use
 
 ```bash
 # Run the basic example (core objects)
-npm run example:basic
+pnpm run example:basic
 
 # Run the e-commerce example
-npm run example:ecommerce
+pnpm run example:ecommerce
 
 # Run the blog example
-npm run example:blog
+pnpm run example:blog
 
 # Run the CRM example
-npm run example:crm
+pnpm run example:crm
 
 # Run the comprehensive CRM example (All core modules)
-npm run example:crm-comprehensive
+pnpm run example:crm-comprehensive
 ```
 
 ### Development
 
 ```bash
 # Watch mode - automatically rebuild all packages on changes
-npm run dev
+pnpm run dev
 
 # Build specific package
-npm run build:core
-npm run build:examples
+pnpm run build:core
+pnpm run build:examples
 
 # Type checking
-npm run type-check
+pnpm run type-check
 
 # Clean build artifacts
-npm run clean
+pnpm run clean
 ```
 
 ## 📦 What's Included
@@ -297,7 +297,7 @@ This repository includes comprehensive automation workflows:
 
 ## 🌟 Features
 
-- ✅ Monorepo structure with npm workspaces
+- ✅ Monorepo structure with pnpm workspaces
 - ✅ Multiple packages: core and examples
 - ✅ TypeScript support with strict type checking
 - ✅ Based on the latest @objectstack/spec (v0.3.3)
