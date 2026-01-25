@@ -1,12 +1,12 @@
 version: 2
 updates:
-  # Enable version updates for npm dependencies
+  # Enable version updates for pnpm dependencies
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
     reviewers:
       - "hotlong"
     assignees:
@@ -16,46 +16,6 @@ updates:
       include: "scope"
     labels:
       - "dependencies"
-      - "automated"
-    
-  # Core package dependencies
-  - package-ecosystem: "npm"
-    directory: "/packages/core"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    reviewers:
-      - "hotlong"
-    assignees:
-      - "hotlong"
-    commit-message:
-      prefix: "chore"
-      prefix-development: "chore"
-      include: "scope"
-    labels:
-      - "dependencies"
-      - "core"
-      - "automated"
-  
-  # Examples package dependencies
-  - package-ecosystem: "npm"
-    directory: "/packages/examples"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    reviewers:
-      - "hotlong"
-    assignees:
-      - "hotlong"
-    commit-message:
-      prefix: "chore"
-      prefix-development: "chore"
-      include: "scope"
-    labels:
-      - "dependencies"
-      - "examples"
       - "automated"
   
   # GitHub Actions

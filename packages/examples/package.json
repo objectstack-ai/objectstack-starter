@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@objectstack/spec": "^0.3.3",
-    "@objectstack-starter/core": "*"
+    "@objectstack-starter/core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^25.0.10",
