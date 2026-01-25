@@ -19,7 +19,8 @@ export const contractObject = {
       name: 'contract_number',
       label: 'Contract Number',
       type: 'text',
-      unique: true
+      unique: true,
+      required: true
     },
     
     contract_name: {

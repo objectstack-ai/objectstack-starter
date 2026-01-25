@@ -46,7 +46,7 @@ export const contactObject = {
     mobile: {
       name: 'mobile',
       label: 'Mobile',
-      type: 'text'
+      type: 'phone'
     },
     
     account: {

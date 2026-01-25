@@ -19,7 +19,8 @@ export const caseObject = {
       name: 'case_number',
       label: 'Case Number',
       type: 'text',
-      unique: true
+      unique: true,
+      required: true
     },
     
     subject: {

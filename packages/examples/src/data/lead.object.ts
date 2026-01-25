@@ -47,7 +47,8 @@ export const leadObject = {
       name: 'email',
       label: 'Email',
       type: 'email',
-      required: true
+      required: true,
+      unique: true
     },
     
     phone: {

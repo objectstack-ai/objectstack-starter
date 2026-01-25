@@ -19,7 +19,8 @@ export const quoteObject = {
       name: 'quote_number',
       label: 'Quote Number',
       type: 'text',
-      unique: true
+      unique: true,
+      required: true
     },
     
     name: {
