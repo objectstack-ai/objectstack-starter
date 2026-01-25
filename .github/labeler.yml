@@ -1,0 +1,44 @@
+# Auto-labeling configuration
+# Add labels to pull requests based on the files that are changed
+
+'core':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/core/**/*'
+
+'examples':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/examples/**/*'
+
+'documentation':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '*.md'
+      - 'packages/**/README.md'
+
+'dependencies':
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'packages/*/package.json'
+      - 'packages/*/package-lock.json'
+
+'ci/cd':
+  - changed-files:
+    - any-glob-to-any-file: 
+      - '.github/workflows/**/*'
+      - '.github/dependabot.yml'
+
+'typescript':
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.ts'
+      - '**/tsconfig.json'
+
+'configuration':
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.config.ts'
+      - '**/*.config.js'
+      - '**/*.config.json'
+      - '.gitignore'

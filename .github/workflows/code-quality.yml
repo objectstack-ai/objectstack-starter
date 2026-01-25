@@ -1,0 +1,54 @@
+name: Code Quality
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  quality-checks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Type check all packages
+      run: npm run type-check
+    
+    - name: Check for TypeScript errors
+      run: |
+        echo "Checking for TypeScript compilation errors..."
+        npm run build 2>&1 | tee build.log
+        if grep -i "error TS" build.log; then
+          echo "TypeScript errors found!"
+          exit 1
+        fi
+        echo "No TypeScript errors found."
+    
+    - name: Check package structure
+      run: |
+        echo "Verifying package structure..."
+        test -f packages/core/package.json || exit 1
+        test -f packages/examples/package.json || exit 1
+        test -d packages/core/src || exit 1
+        test -d packages/examples/src || exit 1
+        echo "Package structure verified."
+    
+    - name: Verify examples can run
+      run: |
+        echo "Testing if examples can execute..."
+        npm run build
+        npm run example:basic
+        echo "Examples verified successfully."
