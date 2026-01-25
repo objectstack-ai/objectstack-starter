@@ -1,18 +1,23 @@
 {
   "name": "objectstack-starter",
   "version": "0.1.0",
-  "description": "ObjectStack Starter Template - A metadata-driven low-code platform starter",
+  "description": "ObjectStack Starter Template - A metadata-driven low-code platform starter (Multi-package Monorepo)",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "clean": "rm -rf dist",
-    "type-check": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@objectstack/spec": "^0.3.3"
+    "build": "npm run build --workspaces",
+    "build:core": "npm run build -w @objectstack-starter/core",
+    "build:examples": "npm run build -w @objectstack-starter/examples",
+    "dev": "npm run dev --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present",
+    "type-check": "npm run type-check --workspaces",
+    "example:basic": "npm run example:basic -w @objectstack-starter/examples",
+    "example:ecommerce": "npm run example:ecommerce -w @objectstack-starter/examples",
+    "example:blog": "npm run example:blog -w @objectstack-starter/examples",
+    "example:crm": "npm run example:crm -w @objectstack-starter/examples"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
@@ -25,7 +30,8 @@
     "objectstack",
     "low-code",
     "metadata-driven",
-    "starter-template"
+    "starter-template",
+    "monorepo"
   ],
   "license": "MIT"
 }
