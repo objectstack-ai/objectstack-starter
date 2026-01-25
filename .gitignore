@@ -10,13 +10,12 @@ package-lock.json
 dist/
 build/
 *.tsbuildinfo
-*.d.ts
-*.d.ts.map
-*.js
-*.js.map
 
-# Keep specific config files
-!*.config.js
+# TypeScript build artifacts in root (if any)
+/*.js
+/*.js.map
+/*.d.ts
+/*.d.ts.map
 
 # Environment files
 .env
