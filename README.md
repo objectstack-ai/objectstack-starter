@@ -1,6 +1,6 @@
 # ObjectStack Starter Template
 
-A starter template for building [ObjectStack](https://objectstack.ai) applications. This template demonstrates the basic structure and conventions for creating metadata-driven low-code applications using the ObjectStack framework.
+A multi-package starter template for building [ObjectStack](https://objectstack.ai) applications. This monorepo demonstrates the structure and conventions for creating metadata-driven low-code applications using the ObjectStack framework, with multiple examples covering different use cases.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
 [![ObjectStack Spec](https://img.shields.io/badge/@objectstack/spec-0.3.3-green.svg)](https://www.npmjs.com/package/@objectstack/spec)
@@ -15,18 +15,40 @@ A starter template for building [ObjectStack](https://objectstack.ai) applicatio
 git clone https://github.com/objectstack-ai/objectstack-starter.git
 cd objectstack-starter
 
-# Install dependencies
+# Install dependencies (installs all workspace packages)
 npm install
 
-# Build the project
+# Build all packages
 npm run build
+```
+
+### Running Examples
+
+This template includes multiple example applications demonstrating different use cases:
+
+```bash
+# Run the basic example (core objects)
+npm run example:basic
+
+# Run the e-commerce example
+npm run example:ecommerce
+
+# Run the blog example
+npm run example:blog
+
+# Run the CRM example
+npm run example:crm
 ```
 
 ### Development
 
 ```bash
-# Watch mode - automatically rebuild on changes
+# Watch mode - automatically rebuild all packages on changes
 npm run dev
+
+# Build specific package
+npm run build:core
+npm run build:examples
 
 # Type checking
 npm run type-check
@@ -35,64 +57,94 @@ npm run type-check
 npm run clean
 ```
 
-### Running the Example
-
-The template includes an example file demonstrating how to use the defined objects and views:
-
-```bash
-# Build the project
-npm run build
-
-# Run the example
-node dist/example.js
-```
-
-This will show you how to import and work with the ObjectStack definitions.
-
 ## 📦 What's Included
 
-This starter template includes:
+This starter template is organized as a monorepo with multiple packages:
 
-### Data Objects (`src/data/`)
+### Package: @objectstack-starter/core
 
-- **Project Task** (`project-task.object.ts`) - Task management with status, priority, assignments, and time tracking
-- **Contact** (`contact.object.ts`) - Contact management with CRM capabilities
+Core package with base objects and views:
 
-### UI Views (`src/ui/`)
+**Data Objects:**
+- **Project Task** - Task management with status, priority, assignments, and time tracking
+- **Contact** - Contact management with CRM capabilities
 
-- **Task Views** (`task.view.ts`)
-  - Grid view for task lists
-  - Kanban board for visual task management
-- **Contact Views** (`contact.view.ts`)
-  - Grid view for contact management
-- **App Definition** (`app.ts`) - Main application structure and navigation
+**UI Views:**
+- Task list view (grid)
+- Task kanban board
+- Contact list view (grid)
+- Main app definition
+
+### Package: @objectstack-starter/examples
+
+Example applications demonstrating different use cases:
+
+**E-commerce:**
+- Product object - Product catalog management
+- Order object - Order processing and tracking
+- Product and order list views
+
+**Blog:**
+- Blog Post object - Content management
+- Author object - Author management
+- Blog post and author list views
+
+**CRM:**
+- Account object - Business account management
+- Opportunity object - Sales pipeline tracking
+- Account list view, opportunity list/kanban views
 
 ### Configuration
 
-- `objectstack.config.ts` - ObjectStack manifest with app metadata, navigation, and permissions
-- `tsconfig.json` - TypeScript configuration
-- `package.json` - Project dependencies and scripts
+- `package.json` - Workspace configuration
+- `packages/*/tsconfig.json` - TypeScript configuration per package
+- `packages/*/package.json` - Package dependencies and scripts
 
 ## 🏗️ Project Structure
 
 ```
-objectstack-starter/
-├── src/
-│   ├── data/              # Data object definitions
-│   │   ├── project-task.object.ts
-│   │   └── contact.object.ts
-│   ├── ui/                # UI views and app definitions
-│   │   ├── task.view.ts
-│   │   ├── contact.view.ts
-│   │   └── app.ts
-│   ├── system/            # System configurations (future)
-│   ├── ai/                # AI agents and prompts (future)
-│   ├── api/               # API definitions (future)
-│   └── index.ts           # Main export file
-├── objectstack.config.ts  # ObjectStack manifest
-├── tsconfig.json          # TypeScript configuration
-├── package.json           # Project configuration
-└── README.md             # This file
+objectstack-starter/               # Monorepo root
+├── packages/
+│   ├── core/                     # @objectstack-starter/core
+│   │   ├── src/
+│   │   │   ├── data/            # Core data objects
+│   │   │   │   ├── project-task.object.ts
+│   │   │   │   └── contact.object.ts
+│   │   │   ├── ui/              # Core UI views
+│   │   │   │   ├── task.view.ts
+│   │   │   │   ├── contact.view.ts
+│   │   │   │   └── app.ts
+│   │   │   ├── objectstack.config.ts
+│   │   │   ├── example.ts
+│   │   │   └── index.ts
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   └── README.md
+│   │
+│   └── examples/                 # @objectstack-starter/examples
+│       ├── src/
+│       │   ├── data/            # Example data objects
+│       │   │   ├── product.object.ts      # E-commerce
+│       │   │   ├── order.object.ts        # E-commerce
+│       │   │   ├── blog-post.object.ts    # Blog
+│       │   │   ├── author.object.ts       # Blog
+│       │   │   ├── account.object.ts      # CRM
+│       │   │   └── opportunity.object.ts  # CRM
+│       │   ├── ui/              # Example UI views
+│       │   │   ├── ecommerce.view.ts
+│       │   │   ├── blog.view.ts
+│       │   │   └── crm.view.ts
+│       │   ├── basic-example.ts
+│       │   ├── ecommerce-example.ts
+│       │   ├── blog-example.ts
+│       │   ├── crm-example.ts
+│       │   └── index.ts
+│       ├── package.json
+│       ├── tsconfig.json
+│       └── README.md
+│
+├── package.json              # Workspace root configuration
+└── README.md                # This file
 ```
 
 ## 📚 ObjectStack Concepts
@@ -186,37 +238,48 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🌟 Features
 
+- ✅ Monorepo structure with npm workspaces
+- ✅ Multiple packages: core and examples
 - ✅ TypeScript support with strict type checking
 - ✅ Based on the latest @objectstack/spec (v0.3.3)
-- ✅ Example data objects following ObjectStack conventions
-- ✅ Example UI views (grid and kanban)
+- ✅ Core objects: Task and Contact management
+- ✅ E-commerce example: Product and Order management
+- ✅ Blog example: Post and Author management
+- ✅ CRM example: Account and Opportunity tracking
+- ✅ Multiple view types (grid and kanban)
 - ✅ Proper project structure and configuration
 - ✅ Ready to extend with AI, API, and System protocols
 
 ## 🔧 Extending This Template
 
-### Adding a New Object
+### Adding a New Object to Core Package
 
-1. Create a new file in `src/data/` (e.g., `account.object.ts`)
+1. Create a new file in `packages/core/src/data/` (e.g., `account.object.ts`)
 2. Define your object following the Data Protocol
-3. Export it from `src/index.ts`
-4. Add navigation for it in `objectstack.config.ts`
+3. Export it from `packages/core/src/index.ts`
+4. Add navigation for it in `packages/core/src/objectstack.config.ts`
 
-### Adding a New View
+### Adding a New View to Core Package
 
-1. Create a new file in `src/ui/` (e.g., `account.view.ts`)
+1. Create a new file in `packages/core/src/ui/` (e.g., `account.view.ts`)
 2. Define your view following the UI Protocol
-3. Export it from `src/index.ts`
+3. Export it from `packages/core/src/index.ts`
 
-### Adding AI Capabilities
+### Creating a New Example Package
 
-1. Create files in `src/ai/` for agents and prompts
-2. Use the AI Protocol from `@objectstack/spec/ai`
+1. Create a new directory in `packages/` (e.g., `packages/my-example`)
+2. Add `package.json` with dependencies
+3. Create `src/` directory with objects and views
+4. Add example runner files
+5. Update workspace configuration in root `package.json`
 
-### Adding API Endpoints
+### Adding More Examples to Examples Package
 
-1. Create files in `src/api/` for endpoint definitions
-2. Use the API Protocol from `@objectstack/spec/api`
+1. Create new object files in `packages/examples/src/data/`
+2. Create corresponding view files in `packages/examples/src/ui/`
+3. Create example runner file (e.g., `my-example.ts`)
+4. Export from `packages/examples/src/index.ts`
+5. Add script to `packages/examples/package.json`
 
 ## 💡 Tips
 
