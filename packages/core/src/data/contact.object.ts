@@ -43,6 +43,20 @@ export const contactObject = {
       type: 'phone'
     },
     
+    mobile: {
+      name: 'mobile',
+      label: 'Mobile',
+      type: 'text'
+    },
+    
+    account: {
+      name: 'account',
+      label: 'Account',
+      type: 'lookup',
+      reference: 'account',
+      description: 'Associated business account'
+    },
+    
     company: {
       name: 'company',
       label: 'Company',

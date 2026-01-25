@@ -13,7 +13,8 @@
     "example:basic": "node dist/basic-example.js",
     "example:ecommerce": "node dist/ecommerce-example.js",
     "example:blog": "node dist/blog-example.js",
-    "example:crm": "node dist/crm-example.js"
+    "example:crm": "node dist/crm-example.js",
+    "example:crm-comprehensive": "node dist/crm-comprehensive-example.js"
   },
   "dependencies": {
     "@objectstack/spec": "^0.3.3",

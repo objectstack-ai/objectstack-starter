@@ -17,7 +17,8 @@
     "example:basic": "npm run example:basic -w @objectstack-starter/examples",
     "example:ecommerce": "npm run example:ecommerce -w @objectstack-starter/examples",
     "example:blog": "npm run example:blog -w @objectstack-starter/examples",
-    "example:crm": "npm run example:crm -w @objectstack-starter/examples"
+    "example:crm": "npm run example:crm -w @objectstack-starter/examples",
+    "example:crm-comprehensive": "npm run example:crm-comprehensive -w @objectstack-starter/examples"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
