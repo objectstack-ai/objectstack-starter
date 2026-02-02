@@ -1,9 +1,9 @@
-# ObjectStack Starter Template
+# ObjectStack Plugin Starter Template
 
-A multi-package starter template for building [ObjectStack](https://objectstack.ai) applications. This monorepo demonstrates the structure and conventions for creating metadata-driven low-code applications using the ObjectStack framework, with multiple examples covering different use cases.
+A minimal starter template for creating [ObjectStack](https://objectstack.ai) plugins. This template provides a clean foundation for building plugins that extend ObjectStack with custom objects, views, and functionality.
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
-[![ObjectStack Spec](https://img.shields.io/badge/@objectstack/spec-0.3.3-green.svg)](https://www.npmjs.com/package/@objectstack/spec)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
+[![ObjectStack Spec](https://img.shields.io/badge/@objectstack/spec-0.8.2-green.svg)](https://www.npmjs.com/package/@objectstack/spec)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 🚀 Quick Start
@@ -11,190 +11,88 @@ A multi-package starter template for building [ObjectStack](https://objectstack.
 ### Installation
 
 ```bash
-# Clone this repository
-git clone https://github.com/objectstack-ai/objectstack-starter.git
-cd objectstack-starter
+# Clone this template
+git clone https://github.com/objectstack-ai/objectstack-starter.git my-plugin
+cd my-plugin
 
-# Install dependencies (installs all workspace packages)
-pnpm install
+# Install dependencies
+npm install
 
-# Build all packages
-pnpm run build
-```
+# Build the plugin
+npm run build
 
-### Running Examples
-
-This template includes multiple example applications demonstrating different use cases:
-
-```bash
-# Run the basic example (core objects)
-pnpm run example:basic
-
-# Run the e-commerce example
-pnpm run example:ecommerce
-
-# Run the blog example
-pnpm run example:blog
-
-# Run the CRM example
-pnpm run example:crm
-
-# Run the comprehensive CRM example (All core modules)
-pnpm run example:crm-comprehensive
-```
-
-### Development
-
-```bash
-# Watch mode - automatically rebuild all packages on changes
-pnpm run dev
-
-# Build specific package
-pnpm run build:core
-pnpm run build:examples
-
-# Type checking
-pnpm run type-check
-
-# Clean build artifacts
-pnpm run clean
+# Run the example
+npm run example
 ```
 
 ## 📦 What's Included
 
-This starter template is organized as a monorepo with multiple packages:
+This starter template includes:
 
-### Package: @objectstack-starter/core
-
-Core package with base objects and views:
-
-**Data Objects:**
-- **Project Task** - Task management with status, priority, assignments, and time tracking
-- **Contact** - Contact management with CRM capabilities
-
-**UI Views:**
-- Task list view (grid)
-- Task kanban board
-- Contact list view (grid)
-- Main app definition
-
-### Package: @objectstack-starter/examples
-
-Example applications demonstrating different use cases:
-
-**E-commerce:**
-- Product object - Product catalog management
-- Order object - Order processing and tracking
-- Product and order list views
-
-**Blog:**
-- Blog Post object - Content management
-- Author object - Author management
-- Blog post and author list views
-
-**CRM (Comprehensive - All Core Modules):**
-- **Lead Management** - Lead object with qualification and conversion tracking
-- **Account Management** - Account object for business account management
-- **Opportunity Management** - Opportunity object for sales pipeline tracking
-- **Contact Management** - Enhanced Contact object linked to accounts
-- **Case/Support Management** - Case object for customer support tickets
-- **Campaign Management** - Campaign object for marketing campaigns
-- **Quote Management** - Quote object for sales quotes and proposals
-- **Contract Management** - Contract object for agreements and subscriptions
-- **Activity Management** - Task, Event, and Call objects for activity tracking
-- 12 Views including list and kanban boards for all objects
-
-### Configuration
-
-- `package.json` - Workspace configuration
-- `packages/*/tsconfig.json` - TypeScript configuration per package
-- `packages/*/package.json` - Package dependencies and scripts
+- **Plugin Configuration** (`src/objectstack.config.ts`) - Define your plugin metadata
+- **Example Object** (`src/objects/example.object.ts`) - Sample data object definition
+- **Example Views** (`src/views/example.view.ts`) - Sample list and kanban views
+- **TypeScript Configuration** - Properly configured for ObjectStack development
+- **Build Scripts** - Ready-to-use development and build commands
 
 ## 🏗️ Project Structure
 
 ```
-objectstack-starter/               # Monorepo root
-├── packages/
-│   ├── core/                     # @objectstack-starter/core
-│   │   ├── src/
-│   │   │   ├── data/            # Core data objects
-│   │   │   │   ├── project-task.object.ts
-│   │   │   │   └── contact.object.ts
-│   │   │   ├── ui/              # Core UI views
-│   │   │   │   ├── task.view.ts
-│   │   │   │   ├── contact.view.ts
-│   │   │   │   └── app.ts
-│   │   │   ├── objectstack.config.ts
-│   │   │   ├── example.ts
-│   │   │   └── index.ts
-│   │   ├── package.json
-│   │   ├── tsconfig.json
-│   │   └── README.md
-│   │
-│   └── examples/                 # @objectstack-starter/examples
-│       ├── src/
-│       │   ├── data/            # Example data objects
-│       │   │   ├── product.object.ts      # E-commerce
-│       │   │   ├── order.object.ts        # E-commerce
-│       │   │   ├── blog-post.object.ts    # Blog
-│       │   │   ├── author.object.ts       # Blog
-│       │   │   ├── account.object.ts      # CRM
-│       │   │   ├── opportunity.object.ts  # CRM
-│       │   │   ├── lead.object.ts         # CRM
-│       │   │   ├── case.object.ts         # CRM
-│       │   │   ├── campaign.object.ts     # CRM
-│       │   │   ├── quote.object.ts        # CRM
-│       │   │   ├── contract.object.ts     # CRM
-│       │   │   └── activity.object.ts     # CRM (Task, Event, Call)
-│       │   ├── ui/              # Example UI views
-│       │   │   ├── ecommerce.view.ts
-│       │   │   ├── blog.view.ts
-│       │   │   ├── crm.view.ts
-│       │   │   └── crm-extended.view.ts
-│       │   ├── basic-example.ts
-│       │   ├── ecommerce-example.ts
-│       │   ├── blog-example.ts
-│       │   ├── crm-example.ts
-│       │   ├── crm-comprehensive-example.ts
-│       │   └── index.ts
-│       ├── package.json
-│       ├── tsconfig.json
-│       └── README.md
-│
-├── package.json              # Workspace root configuration
-└── README.md                # This file
+objectstack-starter/
+├── src/
+│   ├── objectstack.config.ts    # Plugin configuration
+│   ├── objects/                 # Data object definitions
+│   │   └── example.object.ts
+│   ├── views/                   # UI view definitions
+│   │   └── example.view.ts
+│   ├── index.ts                 # Main entry point
+│   └── example.ts               # Usage example
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-## 📚 ObjectStack Concepts
+## 📚 Core Concepts
 
-### Data Protocol (ObjectQL)
+### Plugin Configuration
 
-Define your data structures using the ObjectStack Data Protocol:
+Define your plugin's metadata in `src/objectstack.config.ts`:
 
 ```typescript
-import type { Data } from '@objectstack/spec';
+import type { System } from '@objectstack/spec';
 
-export const myObject: Data.ObjectDefinition = {
-  name: 'my_object',  // snake_case for machine names
-  label: 'My Object',
-  fields: {
-    my_field: {
-      name: 'my_field',
-      label: 'My Field',
-      type: 'text',
-      required: true
-    }
-  },
-  enable: {
-    apiEnabled: true,
-    trackHistory: true
-  }
+export const config: System.ObjectStackManifest = {
+  id: 'my-plugin',
+  name: 'my-plugin',
+  version: '0.1.0',
+  type: 'plugin',
+  description: 'Description of your plugin'
 };
 ```
 
-### UI Protocol (ObjectUI)
+### Data Objects
 
-Define views for your data:
+Define data structures in `src/objects/`:
+
+```typescript
+import { Data } from '@objectstack/spec';
+
+export const myObject = Data.ObjectSchema.create({
+  name: 'my_object',      // snake_case for machine names
+  label: 'My Object',
+  fields: {
+    name: {
+      type: 'text',
+      label: 'Name',
+      required: true
+    }
+  }
+});
+```
+
+### UI Views
+
+Define how data is displayed in `src/views/`:
 
 ```typescript
 import type { UI } from '@objectstack/spec';
@@ -203,31 +101,13 @@ export const myListView: UI.ListView = {
   name: 'my_list',
   label: 'My List',
   type: 'grid',
-  object: 'my_object',
   columns: [
-    { field: 'my_field', width: 200 }
-  ]
-};
-```
-
-### System Protocol (ObjectOS)
-
-Configure your application:
-
-```typescript
-import type { System } from '@objectstack/spec';
-
-export const config: System.Manifest = {
-  name: 'my-app',
-  type: 'app',
-  displayName: 'My Application',
-  navigation: [
-    {
-      type: 'object',
-      object: 'my_object',
-      label: 'My Objects'
-    }
-  ]
+    { field: 'name', label: 'Name', width: 200 }
+  ],
+  data: {
+    provider: 'object',
+    object: 'my_object'
+  }
 };
 ```
 
@@ -236,130 +116,110 @@ export const config: System.Manifest = {
 ObjectStack follows strict naming conventions:
 
 - **Configuration Keys** (TypeScript properties): `camelCase`
-  - Example: `maxLength`, `defaultValue`, `referenceFilters`
+  - Example: `maxLength`, `defaultValue`, `trackHistory`
 - **Machine Names** (data values): `snake_case`
-  - Example: `project_task`, `first_name`, `my_object`
+  - Example: `my_object`, `first_name`, `example_field`
+
+## 🛠️ Development
+
+### Available Scripts
+
+- `npm run build` - Build the plugin
+- `npm run dev` - Watch mode for development
+- `npm run clean` - Remove build artifacts
+- `npm run type-check` - Type check without emitting files
+- `npm run example` - Run the example usage
+
+### Adding a New Object
+
+1. Create a new file in `src/objects/` (e.g., `my-object.object.ts`)
+2. Define your object using `Data.ObjectSchema.create()`
+3. Export it from `src/index.ts`
+
+### Adding a New View
+
+1. Create a new file in `src/views/` (e.g., `my-object.view.ts`)
+2. Define your view following the UI Protocol
+3. Export it from `src/index.ts`
+
+## 📖 ObjectStack Protocols
+
+This starter template uses the ObjectStack Protocol Specification:
+
+- **Data Protocol** - Define data structures and relationships
+- **UI Protocol** - Define user interface views
+- **System Protocol** - Define plugin configuration and metadata
+
+## 🔧 Customization
+
+### 1. Update Plugin Metadata
+
+Edit `src/objectstack.config.ts` to set your plugin's ID, name, version, and description.
+
+### 2. Create Your Objects
+
+Replace or extend `src/objects/example.object.ts` with your own object definitions.
+
+### 3. Create Your Views
+
+Replace or extend `src/views/example.view.ts` with your own view definitions.
+
+### 4. Export Your Definitions
+
+Make sure to export all your objects and views in `src/index.ts`.
+
+## 📦 Building and Publishing
+
+### Build for Distribution
+
+```bash
+npm run build
+```
+
+This creates a `dist/` directory with compiled JavaScript and TypeScript definitions.
+
+### Publish to npm
+
+```bash
+npm publish
+```
+
+Make sure to update `package.json` with your plugin details before publishing.
+
+## 🤝 Integration with ObjectStack
+
+Once built, your plugin can be:
+
+1. **Imported** in other ObjectStack applications
+2. **Registered** with an ObjectStack runtime
+3. **Used** to extend ObjectStack functionality
+
+Example integration:
+
+```typescript
+import myPlugin from '@your-org/my-plugin';
+
+// Use in ObjectStack application
+```
 
 ## 📖 Learn More
 
-- [ObjectStack Spec](https://www.npmjs.com/package/@objectstack/spec) - The protocol specification
+- [ObjectStack Spec](https://www.npmjs.com/package/@objectstack/spec) - Protocol specification
 - [ObjectStack Documentation](https://objectstack.ai) - Full documentation
 - [ObjectStack GitHub](https://github.com/objectstack-ai) - Source code and examples
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤖 Automation & CI/CD
-
-This repository includes comprehensive automation workflows:
-
-### Continuous Integration (CI)
-- **CI Workflow** (`.github/workflows/ci.yml`)
-  - Runs on push to `main` and `develop` branches
-  - Tests on Node.js 18.x and 20.x
-  - Type checking with TypeScript
-  - Builds all packages
-  - Runs all example scripts to validate functionality
-  - Archives build artifacts
-
-### Code Quality
-- **Code Quality Workflow** (`.github/workflows/code-quality.yml`)
-  - Runs on pull requests
-  - Type checking
-  - Build validation
-  - Package structure verification
-  - Example execution tests
-
-### Release Management
-- **Release Workflow** (`.github/workflows/release.yml`)
-  - Triggered on version tags (e.g., `v1.0.0`)
-  - Automated builds
-  - GitHub release creation with auto-generated notes
-  - Attaches relevant files to releases
-
-### Dependency Management
-- **Dependabot** (`.github/dependabot.yml`)
-  - Automated dependency updates
-  - Weekly checks for npm packages and GitHub Actions
-  - Separate configurations for root, core, and examples packages
-  - Auto-assigns PRs to maintainers
-
-### Repository Automation
-- **Auto-assign** (`.github/workflows/auto-assign.yml`) - Automatically assigns issues and PRs
-- **Auto-label** (`.github/workflows/auto-label.yml`) - Labels PRs based on changed files
-- **Stale Management** (`.github/workflows/stale.yml`) - Closes inactive issues and PRs
-- **Proof HTML** (`.github/workflows/proof-html.yml`) - Validates HTML content
-
-## 🌟 Features
-
-- ✅ Monorepo structure with pnpm workspaces
-- ✅ Multiple packages: core and examples
-- ✅ TypeScript support with strict type checking
-- ✅ Based on the latest @objectstack/spec (v0.3.3)
-- ✅ **Automated CI/CD workflows** with GitHub Actions
-- ✅ **Automated dependency updates** with Dependabot
-- ✅ **Code quality checks** on pull requests
-- ✅ Core objects: Task and Contact management
-- ✅ E-commerce example: Product and Order management
-- ✅ Blog example: Post and Author management
-- ✅ **Comprehensive CRM example**: Complete CRM system with all core modules
-  - Lead Management with qualification workflow
-  - Account & Contact Management with relationships
-  - Opportunity Management with sales pipeline
-  - Case/Support Management for customer service
-  - Campaign Management for marketing
-  - Quote & Contract Management for sales
-  - Activity Tracking (Tasks, Events, Calls)
-  - 11 CRM objects with 12 views
-- ✅ Multiple view types (grid and kanban)
-- ✅ Proper project structure and configuration
-- ✅ Ready to extend with AI, API, and System protocols
-
-## 🔧 Extending This Template
-
-### Adding a New Object to Core Package
-
-1. Create a new file in `packages/core/src/data/` (e.g., `account.object.ts`)
-2. Define your object following the Data Protocol
-3. Export it from `packages/core/src/index.ts`
-4. Add navigation for it in `packages/core/src/objectstack.config.ts`
-
-### Adding a New View to Core Package
-
-1. Create a new file in `packages/core/src/ui/` (e.g., `account.view.ts`)
-2. Define your view following the UI Protocol
-3. Export it from `packages/core/src/index.ts`
-
-### Creating a New Example Package
-
-1. Create a new directory in `packages/` (e.g., `packages/my-example`)
-2. Add `package.json` with dependencies
-3. Create `src/` directory with objects and views
-4. Add example runner files
-5. Update workspace configuration in root `package.json`
-
-### Adding More Examples to Examples Package
-
-1. Create new object files in `packages/examples/src/data/`
-2. Create corresponding view files in `packages/examples/src/ui/`
-3. Create example runner file (e.g., `my-example.ts`)
-4. Export from `packages/examples/src/index.ts`
-5. Add script to `packages/examples/package.json`
+- [Writing Plugins Guide](https://protocol.objectstack.ai/docs/developers/writing-plugins) - Official plugin development guide
 
 ## 💡 Tips
 
-- Use the TypeScript language server for IntelliSense and type checking
-- Refer to the `@objectstack/spec` package for the complete protocol reference
 - Follow the naming conventions strictly (camelCase for config, snake_case for data)
-- Enable capabilities like `trackHistory` and `apiEnabled` as needed
-- Use the `prompts/` directory in `@objectstack/spec` for AI context
+- Use the TypeScript language server for IntelliSense and type checking
+- Use `Data.ObjectSchema.create()` for creating objects with proper type inference
+- Keep your plugin focused on a specific domain or functionality
+
+## 📄 License
+
+MIT
 
 ---
 
 Built with ❤️ using [ObjectStack](https://objectstack.ai)
-
