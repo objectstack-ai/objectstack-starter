@@ -6,7 +6,7 @@
  */
 
 // Export plugin configuration
-export { config, default as default } from './objectstack.config.js';
+export { config, default } from './objectstack.config.js';
 
 // Export objects
 export { exampleObject } from './objects/example.object.js';

@@ -35,7 +35,7 @@ console.log();
 console.log('👁️  Views:');
 console.log('  List View:', exampleListView.name);
 console.log('    Type:', exampleListView.type);
-console.log('    Columns:', exampleListView.columns?.length);
+console.log('    Columns:', exampleListView.columns.length);
 console.log();
 console.log('  Kanban View:', exampleKanbanView.name);
 console.log('    Type:', exampleKanbanView.type);
