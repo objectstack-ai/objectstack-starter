@@ -13,7 +13,7 @@
     "example": "node dist/example.js"
   },
   "dependencies": {
-    "@objectstack/spec": "^0.8.2"
+    "@objectstack/spec": "^3.0.6"
   },
   "devDependencies": {
     "@types/node": "^25.0.10",
